@@ -17,7 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        sleep(2)
+//        sleep(2)
+        
+        // 1.创建window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        // 2.创建根控制器
+        window?.rootViewController = CHAMainViewController()
+        // 3.显示界面
+        window?.makeKeyAndVisible()
         
         return true
     }
