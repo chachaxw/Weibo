@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 1.创建window
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
+        window?.backgroundColor = UIColor.lightGray
         // 2.创建根控制器
         window?.rootViewController = CHAMainViewController()
         // 3.显示界面
