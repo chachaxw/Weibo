@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CHAMainViewController: UIViewController {
+class CHAMainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +38,7 @@ extension CHAMainViewController {
             arrM.append(controller(dict: dict))
         }
         
-        print(arrM)
-
+        viewControllers = arrM
     }
     
     
@@ -62,8 +61,10 @@ extension CHAMainViewController {
         vc.title = title
         
         // 3.设置图像
+        vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
+        vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_highlighted")?.withRenderingMode(.alwaysOriginal)
         
-        let nav = CHANavigationViewController(rootViewController: vc)
+        let nav = CHANavigationController(rootViewController: vc)
         
         return nav
     }

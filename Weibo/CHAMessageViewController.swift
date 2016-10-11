@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CHAMessageViewController: UIViewController {
+class CHAMessageViewController: CHABaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

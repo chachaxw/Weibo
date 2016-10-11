@@ -13,7 +13,7 @@
 		B63A79C01DA5559F00F29FC5 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79BF1DA5559F00F29FC5 /* WeiboTests.swift */; };
 		B63A79CB1DA5559F00F29FC5 /* WeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79CA1DA5559F00F29FC5 /* WeiboUITests.swift */; };
 		B63A79E31DA55C4D00F29FC5 /* CHAMainControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79E21DA55C4D00F29FC5 /* CHAMainControllerViewController.swift */; };
-		B63A79E51DA55CBA00F29FC5 /* CHANavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79E41DA55CBA00F29FC5 /* CHANavigationViewController.swift */; };
+		B63A79E51DA55CBA00F29FC5 /* CHANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79E41DA55CBA00F29FC5 /* CHANavigationController.swift */; };
 		B63A79E71DA55CC700F29FC5 /* CHABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79E61DA55CC700F29FC5 /* CHABaseViewController.swift */; };
 		B63A79E91DA55CDA00F29FC5 /* CHAMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79E81DA55CDA00F29FC5 /* CHAMessageViewController.swift */; };
 		B63A79EB1DA55CE300F29FC5 /* CHAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79EA1DA55CE300F29FC5 /* CHAHomeViewController.swift */; };
@@ -52,7 +52,7 @@
 		B63A79CA1DA5559F00F29FC5 /* WeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboUITests.swift; sourceTree = "<group>"; };
 		B63A79CC1DA5559F00F29FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B63A79E21DA55C4D00F29FC5 /* CHAMainControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAMainControllerViewController.swift; sourceTree = "<group>"; };
-		B63A79E41DA55CBA00F29FC5 /* CHANavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHANavigationViewController.swift; sourceTree = "<group>"; };
+		B63A79E41DA55CBA00F29FC5 /* CHANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHANavigationController.swift; sourceTree = "<group>"; };
 		B63A79E61DA55CC700F29FC5 /* CHABaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHABaseViewController.swift; sourceTree = "<group>"; };
 		B63A79E81DA55CDA00F29FC5 /* CHAMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAMessageViewController.swift; sourceTree = "<group>"; };
 		B63A79EA1DA55CE300F29FC5 /* CHAHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAHomeViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				B63A79E21DA55C4D00F29FC5 /* CHAMainControllerViewController.swift */,
-				B63A79E41DA55CBA00F29FC5 /* CHANavigationViewController.swift */,
+				B63A79E41DA55CBA00F29FC5 /* CHANavigationController.swift */,
 				B63A79E61DA55CC700F29FC5 /* CHABaseViewController.swift */,
 			);
 			name = Main;
@@ -376,7 +376,7 @@
 				B63A79ED1DA55CF100F29FC5 /* CHAProfileViewController.swift in Sources */,
 				B63A79AB1DA5559F00F29FC5 /* AppDelegate.swift in Sources */,
 				B6692D291DAD2E730028ED4E /* Bundle.extensions.swift in Sources */,
-				B63A79E51DA55CBA00F29FC5 /* CHANavigationViewController.swift in Sources */,
+				B63A79E51DA55CBA00F29FC5 /* CHANavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CHAProfileViewController: UIViewController {
+class CHAProfileViewController: CHABaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CHADiscoverViewController: UIViewController {
+class CHADiscoverViewController: CHABaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
