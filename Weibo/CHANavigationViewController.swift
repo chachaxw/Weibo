@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CHANavigationViewController: UIViewController {
+class CHANavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

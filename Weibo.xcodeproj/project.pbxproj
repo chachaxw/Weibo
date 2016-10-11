@@ -19,6 +19,7 @@
 		B63A79EB1DA55CE300F29FC5 /* CHAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79EA1DA55CE300F29FC5 /* CHAHomeViewController.swift */; };
 		B63A79ED1DA55CF100F29FC5 /* CHAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79EC1DA55CF100F29FC5 /* CHAProfileViewController.swift */; };
 		B63A79EF1DA55CFD00F29FC5 /* CHADiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79EE1DA55CFD00F29FC5 /* CHADiscoverViewController.swift */; };
+		B6692D291DAD2E730028ED4E /* Bundle.extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692D281DAD2E730028ED4E /* Bundle.extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B63A79EA1DA55CE300F29FC5 /* CHAHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAHomeViewController.swift; sourceTree = "<group>"; };
 		B63A79EC1DA55CF100F29FC5 /* CHAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAProfileViewController.swift; sourceTree = "<group>"; };
 		B63A79EE1DA55CFD00F29FC5 /* CHADiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHADiscoverViewController.swift; sourceTree = "<group>"; };
+		B6692D281DAD2E730028ED4E /* Bundle.extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		B63A79DA1DA55B6000F29FC5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				B6692D271DAD2E5A0028ED4E /* Extensions */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -218,6 +221,14 @@
 				B63A79E81DA55CDA00F29FC5 /* CHAMessageViewController.swift */,
 			);
 			name = Message;
+			sourceTree = "<group>";
+		};
+		B6692D271DAD2E5A0028ED4E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6692D281DAD2E730028ED4E /* Bundle.extensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +375,7 @@
 				B63A79EF1DA55CFD00F29FC5 /* CHADiscoverViewController.swift in Sources */,
 				B63A79ED1DA55CF100F29FC5 /* CHAProfileViewController.swift in Sources */,
 				B63A79AB1DA5559F00F29FC5 /* AppDelegate.swift in Sources */,
+				B6692D291DAD2E730028ED4E /* Bundle.extensions.swift in Sources */,
 				B63A79E51DA55CBA00F29FC5 /* CHANavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +621,7 @@
 				B63A79D11DA5559F00F29FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B63A79D21DA5559F00F29FC5 /* Build configuration list for PBXNativeTarget "WeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +630,7 @@
 				B63A79D41DA5559F00F29FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B63A79D51DA5559F00F29FC5 /* Build configuration list for PBXNativeTarget "WeiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -625,6 +639,7 @@
 				B63A79D71DA5559F00F29FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

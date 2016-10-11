@@ -16,20 +16,56 @@ class CHAMainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+
+// extension 类似于 OC 中的分类，在swift中还可以用来切分代码
+// 可以把相近功能的函数，放在一个extension中
+// 注：与OC中一样，extension中不能定义属性
+// MARK: 设置界面
+extension CHAMainViewController {
+    // 设置所有子控制器
+    private func setupChildControllers() {
+        let arr = [
+            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "tabbar_home"],
+            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "tabbar_message_center"],
+            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "tabbar_discover"],
+            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "tabbar_profile"],
+        ]
+        
+        var arrM = [UIViewController]()
+        for dict in arr {
+            arrM.append(controller(dict: dict))
+        }
+        
+        print(arrM)
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // 使用字典创建一个子控制器
+    // parameter dict: 信息字典(clsName, title, imageName)
+    //retrun 子控制器
+    private func controller(dict: [String: String]) -> UIViewController {
+        
+        // 1.取得字典内容
+        guard let clsName = dict["clsName"],
+            let title = dict["title"],
+            let imageName = dict["iamgeName"],
+            let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type
+        else {
+            return UIViewController()
+        }
+        
+        // 2.创建视图控制器
+        let vc = cls.init()
+        vc.title = title
+        
+        // 3.设置图像
+        
+        let nav = CHANavigationViewController(rootViewController: vc)
+        
+        return nav
     }
-    */
-
+    
 }
