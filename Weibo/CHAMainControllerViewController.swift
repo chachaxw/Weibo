@@ -13,9 +13,14 @@ class CHAMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        setupChildControllers()
     }
 
+    // MARK: - 私有按钮
+//    private lazy var composeButton: UIButton = UIButton.cz_imageButton(
+//        "tabbar_compose_icon_add",
+//        backgroundImageName: "tabbar_compose_button"
+//    )
 }
 
 
@@ -24,20 +29,26 @@ class CHAMainViewController: UITabBarController {
 // 注：与OC中一样，extension中不能定义属性
 // MARK: 设置界面
 extension CHAMainViewController {
+    
+    // 设置添加微博按钮
+//    private func setupComposeButton() {
+//        tabBar.addSubview(composeButton)
+//    }
+    
     // 设置所有子控制器
     private func setupChildControllers() {
         let arr = [
-            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "tabbar_home"],
-            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "tabbar_message_center"],
-            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "tabbar_discover"],
-            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "tabbar_profile"],
+            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home"],
+            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center"],
+            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "discover"],
+            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "profile"],
         ]
         
         var arrM = [UIViewController]()
         for dict in arr {
             arrM.append(controller(dict: dict))
         }
-        
+    
         viewControllers = arrM
     }
     
@@ -63,6 +74,10 @@ extension CHAMainViewController {
         // 3.设置图像
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_highlighted")?.withRenderingMode(.alwaysOriginal)
+        
+        // 4.设置tabbar的颜色和文字
+        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
+//        vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFontSize], for: <#T##UIControlState#>(rawValue: 0))
         
         let nav = CHANavigationController(rootViewController: vc)
         

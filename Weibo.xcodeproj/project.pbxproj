@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B63A79AB1DA5559F00F29FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79AA1DA5559F00F29FC5 /* AppDelegate.swift */; };
-		B63A79B01DA5559F00F29FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63A79AE1DA5559F00F29FC5 /* Main.storyboard */; };
 		B63A79B21DA5559F00F29FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B63A79B11DA5559F00F29FC5 /* Assets.xcassets */; };
 		B63A79C01DA5559F00F29FC5 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79BF1DA5559F00F29FC5 /* WeiboTests.swift */; };
 		B63A79CB1DA5559F00F29FC5 /* WeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79CA1DA5559F00F29FC5 /* WeiboUITests.swift */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		B63A79A71DA5559F00F29FC5 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63A79AA1DA5559F00F29FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B63A79AF1DA5559F00F29FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B63A79B11DA5559F00F29FC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B63A79B61DA5559F00F29FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B63A79BB1DA5559F00F29FC5 /* WeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +109,6 @@
 			children = (
 				B63A79D81DA55B4300F29FC5 /* Classes */,
 				B63A79AA1DA5559F00F29FC5 /* AppDelegate.swift */,
-				B63A79AE1DA5559F00F29FC5 /* Main.storyboard */,
 				B63A79B11DA5559F00F29FC5 /* Assets.xcassets */,
 				B63A79B61DA5559F00F29FC5 /* Info.plist */,
 			);
@@ -150,11 +147,11 @@
 		B63A79D91DA55B4F00F29FC5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B63A79E11DA55BAA00F29FC5 /* Message */,
+				B63A79DD1DA55B8C00F29FC5 /* Discover */,
 				B63A79E01DA55BA500F29FC5 /* Home */,
+				B63A79E11DA55BAA00F29FC5 /* Message */,
 				B63A79DF1DA55BA000F29FC5 /* Main */,
 				B63A79DE1DA55B9700F29FC5 /* Profile */,
-				B63A79DD1DA55B8C00F29FC5 /* Discover */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -343,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63A79B21DA5559F00F29FC5 /* Assets.xcassets in Resources */,
-				B63A79B01DA5559F00F29FC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,17 +406,6 @@
 			targetProxy = B63A79C71DA5559F00F29FC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B63A79AE1DA5559F00F29FC5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B63A79AF1DA5559F00F29FC5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B63A79CD1DA5559F00F29FC5 /* Debug */ = {
