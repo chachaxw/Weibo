@@ -9,8 +9,9 @@
 import Foundation
 
 extension Bundle {
-    // 计算型属性类似于函数，没有参数，有返回值
+    
+    // 计算型属性类似于函数，没有参数，有返回值，这里返回的是命名空间字符串
     var namespace: String {
-        return infoDictionary?["CFBundleExecutable"] as? String ?? ""
+        return infoDictionary?["CFBundleName"] as? String ?? ""
     }
 }

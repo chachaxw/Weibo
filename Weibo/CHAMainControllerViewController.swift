@@ -28,7 +28,7 @@ class CHAMainViewController: UITabBarController {
 // 可以把相近功能的函数，放在一个extension中
 // 注：与OC中一样，extension中不能定义属性
 // MARK: 设置界面
-private extension CHAMainViewController {
+extension CHAMainViewController {
     
     // 设置添加微博按钮
 //    private func setupComposeButton() {
@@ -37,7 +37,7 @@ private extension CHAMainViewController {
     
     // 设置所有子控制器
     func setupChildControllers() {
-        let arr = [
+        let array = [
             ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home"],
             ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center"],
             ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "discover"],
@@ -45,9 +45,12 @@ private extension CHAMainViewController {
         ]
         
         var arrM = [UIViewController]()
-        for dict in arr {
+        for dict in array {
+//            print("\n", dict)
             arrM.append(controller(dict: dict))
         }
+        
+        print(arrM)
         viewControllers = arrM
     }
     
@@ -61,6 +64,7 @@ private extension CHAMainViewController {
         guard let clsName = dict["clsName"],
             let title = dict["title"],
             let imageName = dict["iamgeName"],
+            // AnyClass? -> 视图控制器类型
             let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type
         else {
             return UIViewController()
@@ -75,7 +79,7 @@ private extension CHAMainViewController {
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_highlighted")?.withRenderingMode(.alwaysOriginal)
         
         // 4.设置tabbar的颜色和文字
-//        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
+        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
 //        vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFontSize], for: <#T##UIControlState#>(rawValue: 0))
         
         let nav = CHANavigationController(rootViewController: vc)
