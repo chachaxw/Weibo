@@ -1,14 +1,14 @@
 //
-//  CHADiscoverViewController.swift
+//  CHAMessageViewController.swift
 //  Weibo
 //
-//  Created by Wei Zhou on 06/10/2016.
+//  Created by Wei Zhou on 14/10/2016.
 //  Copyright © 2016 Wei Zhou. All rights reserved.
 //
 
 import UIKit
 
-class CHADiscoverViewController: CHABaseViewController {
+class CHAMessageViewController: CHABaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
