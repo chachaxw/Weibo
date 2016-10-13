@@ -13,7 +13,7 @@ class CHAMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        setupChildControllers()
+        setupChildControllers()
     }
 
     // MARK: - 私有按钮
@@ -28,7 +28,7 @@ class CHAMainViewController: UITabBarController {
 // 可以把相近功能的函数，放在一个extension中
 // 注：与OC中一样，extension中不能定义属性
 // MARK: 设置界面
-extension CHAMainViewController {
+private extension CHAMainViewController {
     
     // 设置添加微博按钮
 //    private func setupComposeButton() {
@@ -36,7 +36,7 @@ extension CHAMainViewController {
 //    }
     
     // 设置所有子控制器
-    private func setupChildControllers() {
+    func setupChildControllers() {
         let arr = [
             ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home"],
             ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center"],
@@ -48,15 +48,14 @@ extension CHAMainViewController {
         for dict in arr {
             arrM.append(controller(dict: dict))
         }
-    
         viewControllers = arrM
     }
     
     
     // 使用字典创建一个子控制器
     // parameter dict: 信息字典(clsName, title, imageName)
-    //retrun 子控制器
-    private func controller(dict: [String: String]) -> UIViewController {
+    // retrun 子控制器
+    func controller(dict: [String: String]) -> UIViewController {
         
         // 1.取得字典内容
         guard let clsName = dict["clsName"],
@@ -76,7 +75,7 @@ extension CHAMainViewController {
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_highlighted")?.withRenderingMode(.alwaysOriginal)
         
         // 4.设置tabbar的颜色和文字
-        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
+//        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
 //        vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFontSize], for: <#T##UIControlState#>(rawValue: 0))
         
         let nav = CHANavigationController(rootViewController: vc)
