@@ -23,7 +23,7 @@
 		B6692DC11DAFEC430028ED4E /* UIScreen+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = B6692DB31DAFEC430028ED4E /* UIScreen+CZAddition.m */; };
 		B6692DC21DAFEC430028ED4E /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = B6692DB51DAFEC430028ED4E /* UIView+CZAddition.m */; };
 		B6692DC31DAFEC430028ED4E /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = B6692DB71DAFEC430028ED4E /* UIViewController+CZAddition.m */; };
-		B6692DC61DAFECB70028ED4E /* Bundle.extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DC51DAFECB70028ED4E /* Bundle.extensions.swift */; };
+		B6692DC61DAFECB70028ED4E /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DC51DAFECB70028ED4E /* Bundle+Extensions.swift */; };
 		B6692DC81DAFED270028ED4E /* CHABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DC71DAFED270028ED4E /* CHABaseViewController.swift */; };
 		B6692DCA1DAFED7B0028ED4E /* CHAMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DC91DAFED7B0028ED4E /* CHAMainViewController.swift */; };
 		B6692DCC1DAFEDCE0028ED4E /* CHANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DCB1DAFEDCE0028ED4E /* CHANavigationController.swift */; };
@@ -32,6 +32,7 @@
 		B6692DD21DAFEE580028ED4E /* CHAMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD11DAFEE580028ED4E /* CHAMessageViewController.swift */; };
 		B6692DD41DAFEE650028ED4E /* CHAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD31DAFEE650028ED4E /* CHAProfileViewController.swift */; };
 		B6692DD61DAFEF090028ED4E /* CHADemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD51DAFEF090028ED4E /* CHADemoViewController.swift */; };
+		B6CDBB3B1DB116E700CD726D /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +89,7 @@
 		B6692DB51DAFEC430028ED4E /* UIView+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CZAddition.m"; sourceTree = "<group>"; };
 		B6692DB61DAFEC430028ED4E /* UIViewController+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CZAddition.h"; sourceTree = "<group>"; };
 		B6692DB71DAFEC430028ED4E /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
-		B6692DC51DAFECB70028ED4E /* Bundle.extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.extensions.swift; sourceTree = "<group>"; };
+		B6692DC51DAFECB70028ED4E /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		B6692DC71DAFED270028ED4E /* CHABaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHABaseViewController.swift; sourceTree = "<group>"; };
 		B6692DC91DAFED7B0028ED4E /* CHAMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAMainViewController.swift; sourceTree = "<group>"; };
 		B6692DCB1DAFEDCE0028ED4E /* CHANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHANavigationController.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		B6692DD11DAFEE580028ED4E /* CHAMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAMessageViewController.swift; sourceTree = "<group>"; };
 		B6692DD31DAFEE650028ED4E /* CHAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAProfileViewController.swift; sourceTree = "<group>"; };
 		B6692DD51DAFEF090028ED4E /* CHADemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHADemoViewController.swift; sourceTree = "<group>"; };
+		B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,7 +312,8 @@
 		B6692DC41DAFEC9B0028ED4E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B6692DC51DAFECB70028ED4E /* Bundle.extensions.swift */,
+				B6692DC51DAFECB70028ED4E /* Bundle+Extensions.swift */,
+				B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,7 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6692DC01DAFEC430028ED4E /* UILabel+CZAddition.m in Sources */,
-				B6692DC61DAFECB70028ED4E /* Bundle.extensions.swift in Sources */,
+				B6692DC61DAFECB70028ED4E /* Bundle+Extensions.swift in Sources */,
 				B6692DBB1DAFEC430028ED4E /* NSString+CZBase64.m in Sources */,
 				B6692DBC1DAFEC430028ED4E /* NSString+CZHash.m in Sources */,
 				B6692DCA1DAFED7B0028ED4E /* CHAMainViewController.swift in Sources */,
@@ -460,6 +463,7 @@
 				B6692DD41DAFEE650028ED4E /* CHAProfileViewController.swift in Sources */,
 				B6692DBF1DAFEC430028ED4E /* UIColor+CZAddition.m in Sources */,
 				B6692DBA1DAFEC430028ED4E /* NSObject+CZRuntime.m in Sources */,
+				B6CDBB3B1DB116E700CD726D /* UIBarButtonItem+Extension.swift in Sources */,
 				B6692DCE1DAFEE190028ED4E /* CHADiscoverViewController.swift in Sources */,
 				B6692DCC1DAFEDCE0028ED4E /* CHANavigationController.swift in Sources */,
 				B6692DD21DAFEE580028ED4E /* CHAMessageViewController.swift in Sources */,

@@ -23,29 +23,16 @@ class CHAMainViewController: UITabBarController {
     // 撰写微博
     // private 能够保证方法私有，仅在当前对象被访问
     // @objc 允许这个函数运行时通过 OC 的消息机制被调用
-    @objc private func composeStatus() {
+    @objc func composeStatus() {
         print("撰写微博")
     }
     
     // MARK: - 私有控件
-    private lazy var composeButton: UIButton = UIButton.cz_imageButton(
+    lazy var composeButton: UIButton = UIButton.cz_imageButton(
         "tabbar_compose_icon_add",
         backgroundImageName: "tabbar_compose_button"
     )
     
-    // 设置添加微博按钮
-    func setupComposeButton() {
-        tabBar.addSubview(composeButton)
-        
-        // 设置按钮的位置
-        let count = CGFloat(childViewControllers.count)
-        // 向内缩进的宽度减少，能够让按钮的宽度增加，盖住容错点，防止穿帮
-        let w = tabBar.bounds.width / count - 1
-        
-        // CGRectInset 正数向内缩紧，负数向外扩展
-        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
-        composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
-    }
 }
 
 
@@ -73,6 +60,20 @@ private extension CHAMainViewController {
         viewControllers = arrM
     }
     
+    
+    // 设置添加微博按钮
+    func setupComposeButton() {
+        tabBar.addSubview(composeButton)
+        
+        // 设置按钮的位置
+        let count = CGFloat(childViewControllers.count)
+        // 向内缩进的宽度减少，能够让按钮的宽度增加，盖住容错点，防止穿帮
+        let w = tabBar.bounds.width / count - 1
+        
+        // CGRectInset 正数向内缩紧，负数向外扩展
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
+        composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
+    }
     
     // 使用字典创建一个子控制器
     // parameter dict: 信息字典(clsName, title, imageName)

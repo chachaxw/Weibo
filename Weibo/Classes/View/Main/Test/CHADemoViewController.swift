@@ -18,6 +18,7 @@ class CHADemoViewController: CHABaseViewController {
         view.backgroundColor = UIColor.cz_random()
     }
     
+    
     @objc func showNext() {
         let vc = CHADemoViewController()
         
@@ -30,8 +31,10 @@ class CHADemoViewController: CHABaseViewController {
 extension CHADemoViewController {
     
     override func setupUI() {
-        
+        super.setupUI()
         // 设置右侧的控制器
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(showNext))
+        // 按钮点击无法高亮
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(showNext))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
     }
 }
