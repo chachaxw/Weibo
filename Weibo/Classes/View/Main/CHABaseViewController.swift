@@ -14,6 +14,14 @@ class CHABaseViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        setupUI()
     }
     
+}
+
+extension CHABaseViewController {
+    
+    func setupUI() {
+        view.backgroundColor = UIColor.cz_random()
+    }
 }

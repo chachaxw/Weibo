@@ -20,9 +20,9 @@ class CHADemoViewController: CHABaseViewController {
 }
 
 
-extension CHABaseViewController {
+extension CHADemoViewController {
     
-    func setupUI() {
+    override func setupUI() {
         view.backgroundColor = UIColor.cz_random()
     }
 }
