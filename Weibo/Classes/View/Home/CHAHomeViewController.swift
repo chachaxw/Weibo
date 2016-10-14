@@ -23,7 +23,6 @@ class CHAHomeViewController: CHABaseViewController {
         
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
-        
     }
     
 }
