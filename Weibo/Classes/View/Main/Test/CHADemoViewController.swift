@@ -14,7 +14,14 @@ class CHADemoViewController: CHABaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        title = "第\(navigationController?.childViewControllers.count ?? 0)个"
         view.backgroundColor = UIColor.cz_random()
+    }
+    
+    @objc func showNext() {
+        let vc = CHADemoViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -23,6 +30,8 @@ class CHADemoViewController: CHABaseViewController {
 extension CHADemoViewController {
     
     override func setupUI() {
-        view.backgroundColor = UIColor.cz_random()
+        
+        // 设置右侧的控制器
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(showNext))
     }
 }

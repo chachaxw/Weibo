@@ -10,10 +10,15 @@ import UIKit
 
 class CHANavigationController: UINavigationController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // 重写 push 方法，所有的 push 动作都会调用这个方法
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+//        print(viewController)
         
-        // Do any additional setup after loading the view.
+        // 如果不是栈底控制器才需要隐藏底部 tabBar，根控制器不需要处理
+        if childViewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        
+        super.pushViewController(viewController, animated: true)
     }
-    
 }

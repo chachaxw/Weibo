@@ -101,6 +101,7 @@ private extension CHAMainViewController {
         vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
 //      vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 12)], for: UIControlState(rawValue: 0))
         
+        // 事例化导航控制器的时候，会调用push方法，将 rootVC 压栈
         let nav = CHANavigationController(rootViewController: vc)
         
         return nav
