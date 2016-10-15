@@ -17,7 +17,7 @@ extension UIBarButtonItem {
     /// - parameter target:   target
     /// - parameter action:   action
     /// - parameter isBack:   是否是返回按钮，如果是则加上箭头
-    /// - return: UIBarButtonItem 
+    /// - returns: UIBarButtonItem
     convenience init(title: String, fontSize: CGFloat = 16, target: AnyObject, action: Selector, isBack: Bool = false) {
         let btn: UIButton = UIButton.cz_textButton(title, fontSize: fontSize, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
         
