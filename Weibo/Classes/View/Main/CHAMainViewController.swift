@@ -34,6 +34,14 @@ class CHAMainViewController: UITabBarController {
     // @objc 允许这个函数运行时通过 OC 的消息机制被调用
     @objc func composeStatus() {
         print("撰写微博")
+        
+        // 测试旋转方向
+        let vc = UIViewController()
+        
+        vc.view.backgroundColor = UIColor.black
+        let nav = UINavigationController(rootViewController: vc)
+        
+        present(nav, animated: true, completion: nil)
     }
     
     // MARK: - 私有控件
