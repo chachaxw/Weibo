@@ -24,10 +24,9 @@ class CHAMainViewController: UITabBarController {
        - 设置支持的方向之后，当前的控制器及子控制器都会遵守这个方向
        - 如果播放视频，通常是通过modal来展现的
     */
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientation {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-    
     
     // MARK - 监听方法
     // 撰写微博
