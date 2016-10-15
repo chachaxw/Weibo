@@ -19,6 +19,16 @@ class CHAMainViewController: UITabBarController {
         
     }
     
+    /* 
+       - 用代码控制设备的方向，可以在需要横屏的地方，单独处理
+       - 设置支持的方向之后，当前的控制器及子控制器都会遵守这个方向
+       - 如果播放视频，通常是通过modal来展现的
+    */
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientation {
+        return .portrait
+    }
+    
+    
     // MARK - 监听方法
     // 撰写微博
     // private 能够保证方法私有，仅在当前对象被访问
