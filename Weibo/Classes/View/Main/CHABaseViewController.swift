@@ -23,6 +23,8 @@ class CHABaseViewController: UIViewController {
     // 刷新控件
     var refreshControl: UIRefreshControl?
     
+    var isPullup: Bool = false
+    
     // 自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     // 自定义导航条目，以后设置导航条目统一用 navItem
@@ -115,6 +117,30 @@ extension CHABaseViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableViewCell()
     }
     
+    // 在最后一行的时候，做上拉刷行
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // 1. 判断 indexpath 的最后一个 cell
+        // (indexPath.section(最大) ／ (indexPath.row(最小)))
+        
+        let row = indexPath.row
+        let section = tableView.numberOfSections - 1
+        
+        if row < 0 || section < 0 {
+            return
+        }
+        
+        let count = tableView.numberOfRows(inSection: section)
+        
+        if row == (count - 1) && !isPullup{
+            print("上拉刷新")
+            
+            isPullup = true
+            
+            // 开始加载数据
+            loadData()
+        }
+    }
     
 }
 

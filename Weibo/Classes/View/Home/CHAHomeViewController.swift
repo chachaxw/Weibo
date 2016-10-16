@@ -24,13 +24,20 @@ class CHAHomeViewController: CHABaseViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             
             for i in 0..<15 {
-                // 将数据插入到数组的顶部
-                self.statusList.insert(i.description, at: 0)
+                
+                if self.isPullup {
+                    self.statusList.append("上拉 \(i)")
+                } else {
+                    // 将数据插入到数组的顶部
+                    self.statusList.insert(i.description, at: 0)
+                }
             }
             print("延迟加载数据")
             
             // 结束刷新
             self.refreshControl?.endRefreshing()
+            
+            self.isPullup = false
             
             // 刷新表格数据
             self.tableView?.reloadData()
