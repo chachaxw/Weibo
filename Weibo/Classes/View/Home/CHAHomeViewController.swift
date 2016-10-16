@@ -19,9 +19,21 @@ class CHAHomeViewController: CHABaseViewController {
     
     // 加载数据
     override func loadData() {
-        for i in 0..<15 {
-            // 将数据插入到数组的顶部
-            statusList.insert(i.description, at: 0)
+        
+        // 模拟延迟加载数据 -> dispatch_after
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            
+            for i in 0..<15 {
+                // 将数据插入到数组的顶部
+                self.statusList.insert(i.description, at: 0)
+            }
+            print("延迟加载数据")
+            
+            // 结束刷新
+            self.refreshControl?.endRefreshing()
+            
+            // 刷新表格数据
+            self.tableView?.reloadData()
         }
     }
     

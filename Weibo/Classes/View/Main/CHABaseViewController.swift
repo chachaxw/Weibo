@@ -20,7 +20,8 @@ import UIKit
 class CHABaseViewController: UIViewController {
     
     var tableView: UITableView?
-    
+    // 刷新控件
+    var refreshControl: UIRefreshControl?
     
     // 自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
@@ -87,6 +88,15 @@ extension CHABaseViewController {
         
         // 设置内容缩紧
         tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height, 0, (tabBarController?.tabBar.bounds.height)!, 0)
+        
+        // 设置刷新控件
+        refreshControl = UIRefreshControl()
+        
+        // 添加表格视图
+        tableView?.addSubview(refreshControl!)
+        
+        // 添加监听方法
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
 }
