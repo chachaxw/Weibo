@@ -10,6 +10,9 @@ import UIKit
 
 class CHABaseViewController: UIViewController {
     
+    var tableView: UITableView?
+    
+    
     // 自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     // 自定义导航条目，以后设置导航条目统一用 navItem
@@ -36,6 +39,12 @@ extension CHABaseViewController {
     
     func setupUI() {
         view.backgroundColor = UIColor.cz_random()
+        setupNaviagtionBar()
+        setupTableView()
+    }
+    
+    // 设置导航条
+    func setupNaviagtionBar() {
         // 添加导航条
         view.addSubview(navigationBar)
         
@@ -46,4 +55,12 @@ extension CHABaseViewController {
         // 设置 navBar 的字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.darkGray]
     }
+    
+    // 设置表格视图
+    func setupTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        
+        view.insertSubview(tableView!, belowSubview: navigationBar)
+    }
+    
 }
