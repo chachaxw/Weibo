@@ -8,12 +8,21 @@
 
 import UIKit
 
+// 定义全局常量，尽量使用private修饰
+private let cellId = "cellId"
+
 class CHAHomeViewController: CHABaseViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    // 微博数据数组
+    lazy var statusList = [String]()
+    
+    
+    // 加载数据
+    override func loadData() {
+        for i in 0..<15 {
+            // 将数据插入到数组的顶部
+            statusList.insert(i.description, at: 0)
+        }
     }
     
     // 显示好友
@@ -27,6 +36,27 @@ class CHAHomeViewController: CHABaseViewController {
     
 }
 
+
+// MARK: -表格数据源方法，具体数据源方法实现，不需要 super
+extension CHAHomeViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statusList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 获取cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        // 设置cell
+        cell.textLabel?.text = "Halo Chacha \(statusList[indexPath.row])"
+        
+        return cell
+    }
+}
+
+
+// MARK: - 设置界面
 extension CHAHomeViewController {
     // 重写父类的方法
     override func setupUI() {
@@ -40,7 +70,11 @@ extension CHAHomeViewController {
 //        let btn: UIButton = UIButton.cz_textButton("好友", fontSize: 16, normalColor: UIColor.lightGray, highlightedColor: UIColor.orange)
 //        btn.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+        
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+        
+        // 注册原型 cell
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
         

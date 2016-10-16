@@ -8,6 +8,15 @@
 
 import UIKit
 
+// OC中使用协议来替代多继承
+// Swift 的写法更类似于多继承
+// Swift 中，利用 extension 可以把函数按照功能分类管理，便于阅读和管理
+// 注意：
+// 1. extension 不能有属性
+// 2. extension 中不能重写父类方法！重写父类方法，是子类的职责，扩展是对类的扩展
+
+
+// 所有主控制器的积累控制器
 class CHABaseViewController: UIViewController {
     
     var tableView: UITableView?
@@ -23,6 +32,7 @@ class CHABaseViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setupUI()
+        loadData()
     }
     
     // 重写 title 的 didSet
@@ -32,6 +42,11 @@ class CHABaseViewController: UIViewController {
         }
     }
     
+    // 加载数据
+    func loadData() {
+        
+    }
+    
 }
 
 // MARK - 设置界面
@@ -39,6 +54,10 @@ extension CHABaseViewController {
     
     func setupUI() {
         view.backgroundColor = UIColor.cz_random()
+        
+        // 取消自动缩进， 如果隐藏了导航栏，会缩进20个点
+        automaticallyAdjustsScrollViewInsets = false
+        
         setupNaviagtionBar()
         setupTableView()
     }
@@ -61,6 +80,32 @@ extension CHABaseViewController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         
         view.insertSubview(tableView!, belowSubview: navigationBar)
+        
+        // 设置数据源 & 代理 -> 目的：子类直接实现数据源方法
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        
+        // 设置内容缩紧
+        tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height, 0, (tabBarController?.tabBar.bounds.height)!, 0)
     }
     
 }
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension CHABaseViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    // 基类知识准备方法，子类负责具体的实现
+    // 子类数据源方法不需要 super
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 只是为了保证没有语法错误
+        return UITableViewCell()
+    }
+    
+    
+}
+
+
