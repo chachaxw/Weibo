@@ -19,6 +19,9 @@ import UIKit
 // 所有主控制器的积累控制器
 class CHABaseViewController: UIViewController {
     
+    // 用户登录标记
+    var userLogin = false
+    
     var tableView: UITableView?
     // 刷新控件
     var refreshControl: UIRefreshControl?
@@ -47,7 +50,8 @@ class CHABaseViewController: UIViewController {
     
     // 加载数据
     func loadData() {
-        
+        // 默认关闭下拉刷新
+        refreshControl?.endRefreshing()
     }
     
 }
@@ -62,7 +66,8 @@ extension CHABaseViewController {
         automaticallyAdjustsScrollViewInsets = false
         
         setupNaviagtionBar()
-        setupTableView()
+        
+        userLogin ? setupTableView() : setupVisitorView()
     }
     
     // 设置导航条
@@ -101,9 +106,19 @@ extension CHABaseViewController {
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
+    func setupVisitorView() {
+        
+        let visitorView = UIView(frame: view.bounds)
+        
+        visitorView.backgroundColor = UIColor.cz_random()
+        
+        view.insertSubview(visitorView, belowSubview: navigationBar)
+        
+    }
+    
 }
 
-// MARK: - UITableViewDataSource, UITableViewDelegate
+// : - UITableViewDataSource, UITableViewDelegate
 extension CHABaseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,7 +148,7 @@ extension CHABaseViewController: UITableViewDataSource, UITableViewDelegate {
         let count = tableView.numberOfRows(inSection: section)
         
         if row == (count - 1) && !isPullup{
-            print("上拉刷新")
+            print("上拉加载")
             
             isPullup = true
             
