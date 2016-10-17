@@ -32,6 +32,7 @@
 		B6692DD21DAFEE580028ED4E /* CHAMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD11DAFEE580028ED4E /* CHAMessageViewController.swift */; };
 		B6692DD41DAFEE650028ED4E /* CHAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD31DAFEE650028ED4E /* CHAProfileViewController.swift */; };
 		B6692DD61DAFEF090028ED4E /* CHADemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD51DAFEF090028ED4E /* CHADemoViewController.swift */; };
+		B673A4561DB51DAC0055C419 /* CHAVisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673A4551DB51DAC0055C419 /* CHAVisitorViewController.swift */; };
 		B6CDBB3B1DB116E700CD726D /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		B6692DD11DAFEE580028ED4E /* CHAMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAMessageViewController.swift; sourceTree = "<group>"; };
 		B6692DD31DAFEE650028ED4E /* CHAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAProfileViewController.swift; sourceTree = "<group>"; };
 		B6692DD51DAFEF090028ED4E /* CHADemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHADemoViewController.swift; sourceTree = "<group>"; };
+		B673A4551DB51DAC0055C419 /* CHAVisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAVisitorViewController.swift; sourceTree = "<group>"; };
 		B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +243,7 @@
 				B6692DC71DAFED270028ED4E /* CHABaseViewController.swift */,
 				B6692DC91DAFED7B0028ED4E /* CHAMainViewController.swift */,
 				B6692DCB1DAFEDCE0028ED4E /* CHANavigationController.swift */,
+				B673A4541DB51D830055C419 /* VisitorView */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -316,6 +319,14 @@
 				B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B673A4541DB51D830055C419 /* VisitorView */ = {
+			isa = PBXGroup;
+			children = (
+				B673A4551DB51DAC0055C419 /* CHAVisitorViewController.swift */,
+			);
+			path = VisitorView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +485,7 @@
 				B6692DB91DAFEC430028ED4E /* NSAttributedString+CZAdditon.m in Sources */,
 				B6692DD61DAFEF090028ED4E /* CHADemoViewController.swift in Sources */,
 				B6692DB81DAFEC430028ED4E /* NSArray+Log.m in Sources */,
+				B673A4561DB51DAC0055C419 /* CHAVisitorViewController.swift in Sources */,
 				B6692DC81DAFED270028ED4E /* CHABaseViewController.swift in Sources */,
 				B6692DC21DAFEC430028ED4E /* UIView+CZAddition.m in Sources */,
 				B6692DBD1DAFEC430028ED4E /* NSString+CZPath.m in Sources */,
