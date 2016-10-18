@@ -22,6 +22,9 @@ class CHABaseViewController: UIViewController {
     // 用户登录标记
     var userLogin = false
     
+    // 访客视图
+    var visitorInfoDict: [String: String]?
+    
     var tableView: UITableView?
     // 刷新控件
     var refreshControl: UIRefreshControl?
@@ -106,11 +109,14 @@ extension CHABaseViewController {
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
+    // 设置访客视图信息
     func setupVisitorView() {
         
         let visitorView = CHAVisitorViewController(frame: view.bounds)
         
         view.insertSubview(visitorView, belowSubview: navigationBar)
+        
+        visitorView.visitorInfo = visitorInfoDict
         
     }
     

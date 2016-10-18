@@ -10,6 +10,29 @@ import UIKit
 
 class CHAVisitorViewController: UIView {
 
+    // MARK - 使用字典设置访客视图的信息
+    // parameter dict: [imageName / message]
+    // 提示： 如果是首页，imageName == ""
+    var visitorInfo: [String: String]? {
+        didSet {
+            // 1. 取字典信息
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"]
+            else {
+                return
+            }
+            
+            tipLabel.text = message
+            
+            if imageName == "" {
+                return
+            }
+            
+            iconView.image = UIImage(named: imageName)
+        }
+    }
+    
+    // MARK - 构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -18,6 +41,7 @@ class CHAVisitorViewController: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been impleented")
     }
+
     
     // MARK - 私有控件
     lazy var iconView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))

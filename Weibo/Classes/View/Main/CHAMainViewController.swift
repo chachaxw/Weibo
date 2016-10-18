@@ -61,13 +61,25 @@ private extension CHAMainViewController {
     
     // 设置所有子控制器
     func setupChildControllers() {
-        let array = [
-            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home"],
-            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center"],
+        
+        let array: [[String: Any]] = [
+            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home",
+                "visitorView": ["imageName": "", "message": "关注一些人，回这里看看有什么"]
+            ],
+            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center",
+                "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到消息"]
+            ],
             ["clsName": "UIViewController"],
-            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "discover"],
-            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "profile"],
-            ]
+            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "discover",
+                "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]
+            ],
+            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "profile",
+                "visitorView": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
+            ],
+        ]
+        
+        // 测试数据格式是否正确
+//        (array as NSArray).write(toFile: "/Users/Wei/Downloads/demo.plist", atomically: true)
         
         var arrM = [UIViewController]()
         for dict in array {
@@ -95,21 +107,25 @@ private extension CHAMainViewController {
     // 使用字典创建一个子控制器
     // parameter dict: 信息字典(clsName, title, imageName)
     // retrun 子控制器
-    func controller(dict: [String: String]) -> UIViewController {
+    func controller(dict: [String: Any]) -> UIViewController {
         
         // 1.取得字典内容
-        guard let clsName = dict["clsName"],
-            let title = dict["title"],
-            let imageName = dict["imageName"],
+        guard let clsName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
             // AnyClass? -> 视图控制器类型
-            let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type
-            else {
-                return UIViewController()
+            let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? CHABaseViewController.Type,
+            let visitorDict = dict["visitorInfo"] as? [String: String]
+        else {
+            return UIViewController()
         }
         
         // 2.创建视图控制器
         let vc = cls.init()
         vc.title = title
+        
+        // 设置控制器的访客字典
+        vc.visitorInfoDict = visitorDict
         
         // 3.设置图像
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
