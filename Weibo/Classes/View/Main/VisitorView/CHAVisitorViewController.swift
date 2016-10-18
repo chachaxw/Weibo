@@ -22,6 +22,8 @@ class CHAVisitorViewController: UIView {
     // MARK - 私有控件
     lazy var iconView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
     
+    lazy var maskIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
+    
     lazy var houseView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     
     lazy var tipLabel: UILabel = UILabel.cz_label(
@@ -47,10 +49,11 @@ class CHAVisitorViewController: UIView {
 
 extension CHAVisitorViewController {
     func setupUI() {
-        backgroundColor = UIColor.init(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.00)
+        backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         
         // 1. 添加控件
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseView)
         addSubview(tipLabel)
         addSubview(registorButton)
@@ -160,10 +163,25 @@ extension CHAVisitorViewController {
         addConstraint(NSLayoutConstraint(item: loginButton,
                                          attribute: .width,
                                          relatedBy: .equal,
-                                         toItem: nil,
-                                         attribute: .notAnAttribute,
+                                         toItem: registorButton,
+                                         attribute: .width,
                                          multiplier: 1.0,
-                                         constant: 100))
+                                         constant: 0))
+        
+        // maskIconView
+        // views参数：定义 VFL 中的控件名称和实际名称映射关系
+        let viewDict = ["maskIconView": maskIconView, "registorButton": registorButton] as [String : Any]
+        let metrics = ["spacing": -35]
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[maskIconView]-0-|",
+            options: [],
+            metrics: nil,
+            views: viewDict))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[maskIconView]-(spacing)-[registorButton]",
+            options: [],
+            metrics: metrics,
+            views: viewDict))
     }
     
 }
