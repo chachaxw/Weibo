@@ -11,6 +11,7 @@
 		B63A79B21DA5559F00F29FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B63A79B11DA5559F00F29FC5 /* Assets.xcassets */; };
 		B63A79C01DA5559F00F29FC5 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79BF1DA5559F00F29FC5 /* WeiboTests.swift */; };
 		B63A79CB1DA5559F00F29FC5 /* WeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A79CA1DA5559F00F29FC5 /* WeiboUITests.swift */; };
+		B65D34991DB7CB14000D50C3 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = B65D34981DB7CB14000D50C3 /* main.json */; };
 		B6692DB81DAFEC430028ED4E /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = B6692DA11DAFEC430028ED4E /* NSArray+Log.m */; };
 		B6692DB91DAFEC430028ED4E /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = B6692DA31DAFEC430028ED4E /* NSAttributedString+CZAdditon.m */; };
 		B6692DBA1DAFEC430028ED4E /* NSObject+CZRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = B6692DA51DAFEC430028ED4E /* NSObject+CZRuntime.m */; };
@@ -64,6 +65,7 @@
 		B63A79C61DA5559F00F29FC5 /* WeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63A79CA1DA5559F00F29FC5 /* WeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboUITests.swift; sourceTree = "<group>"; };
 		B63A79CC1DA5559F00F29FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B65D34981DB7CB14000D50C3 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		B6692D661DAFCCEC0028ED4E /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
 		B6692D9F1DAFEC430028ED4E /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
 		B6692DA01DAFEC430028ED4E /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		B6692D991DAFEB420028ED4E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B65D34981DB7CB14000D50C3 /* main.json */,
 				B6692D9D1DAFEBCF0028ED4E /* Test */,
 				B6692DC71DAFED270028ED4E /* CHABaseViewController.swift */,
 				B6692DC91DAFED7B0028ED4E /* CHAMainViewController.swift */,
@@ -440,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65D34991DB7CB14000D50C3 /* main.json in Resources */,
 				B63A79B21DA5559F00F29FC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

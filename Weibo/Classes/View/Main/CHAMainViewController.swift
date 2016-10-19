@@ -62,27 +62,44 @@ private extension CHAMainViewController {
     // 设置所有子控制器
     func setupChildControllers() {
         
-        let array: [[String: Any]] = [
-            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home",
-                "visitorView": ["imageName": "", "message": "关注一些人，回这里看看有什么"]
-            ],
-            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center",
-                "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到消息"]
-            ],
-            ["clsName": "UIViewController"],
-            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "discover",
-                "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]
-            ],
-            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "profile",
-                "visitorView": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
-            ],
-        ]
+        // 从 bundle 中加载配置json
+        // 1. 路径 2. 加载 NSData 3. 反序列化转化为成数组
+        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+            let data = NSData(contentsOfFile: path),
+            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]]
+            else {
+                return
+        }
+        print(data)
+        
+//        let array: [[String: Any]] = [
+//            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home",
+//                "visitorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么"]
+//            ],
+//            ["clsName": "CHAMessageViewController", "title": "消息", "imageName": "message_center",
+//                "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到消息"]
+//            ],
+//            ["clsName": "UIViewController"],
+//            ["clsName": "CHADiscoverViewController", "title": "发现", "imageName": "discover",
+//                "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]
+//            ],
+//            ["clsName": "CHAProfileViewController", "title": "我", "imageName": "profile",
+//                "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
+//            ],
+//        ]
         
         // 测试数据格式是否正确
 //        (array as NSArray).write(toFile: "/Users/Wei/Downloads/demo.plist", atomically: true)
         
+        // JSON序列化
+//        let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+//        let fileUrl = NSURL.fileURL(withPath: "/Users/Wei/Downloads/demo.json")
+        
+//        print("文件url \(fileUrl)")
+//        (data as NSData).write(toFile: "/Users/Wei/Downloads/main.json", atomically: true)
+        
         var arrM = [UIViewController]()
-        for dict in array {
+        for dict in array! {
             arrM.append(controller(dict: dict))
         }
         
@@ -115,7 +132,7 @@ private extension CHAMainViewController {
             let imageName = dict["imageName"] as? String,
             // AnyClass? -> 视图控制器类型
             let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? CHABaseViewController.Type,
-            let visitorDict = dict["visitorView"] as? [String: String]
+            let visitorDict = dict["visitorInfo"] as? [String: String]
         else {
             return UIViewController()
         }
