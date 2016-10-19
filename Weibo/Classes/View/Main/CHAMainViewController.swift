@@ -105,7 +105,7 @@ private extension CHAMainViewController {
     }
     
     // 使用字典创建一个子控制器
-    // parameter dict: 信息字典(clsName, title, imageName)
+    // parameter dict: 信息字典(clsName, title, imageName, visitorInfo)
     // retrun 子控制器
     func controller(dict: [String: Any]) -> UIViewController {
         
@@ -115,7 +115,7 @@ private extension CHAMainViewController {
             let imageName = dict["imageName"] as? String,
             // AnyClass? -> 视图控制器类型
             let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? CHABaseViewController.Type,
-            let visitorDict = dict["visitorInfo"] as? [String: String]
+            let visitorDict = dict["visitorView"] as? [String: String]
         else {
             return UIViewController()
         }

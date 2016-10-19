@@ -17,7 +17,7 @@ class CHAVisitorViewController: UIView {
         didSet {
             // 1. 取字典信息
             guard let imageName = visitorInfo?["imageName"],
-                let message = visitorInfo?["message"]
+                  let message = visitorInfo?["message"]
             else {
                 return
             }
@@ -29,6 +29,10 @@ class CHAVisitorViewController: UIView {
             }
             
             iconView.image = UIImage(named: imageName)
+            
+            // 其他访客视图不需要显示遮罩
+            houseView.isHidden = true
+            maskIconView.isHidden = true
         }
     }
     
@@ -82,6 +86,8 @@ extension CHAVisitorViewController {
         addSubview(tipLabel)
         addSubview(registorButton)
         addSubview(loginButton)
+        
+        tipLabel.textAlignment = .center
         
         // 2. 取消 autoresizing 
         for v in subviews {

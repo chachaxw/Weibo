@@ -113,10 +113,10 @@ extension CHABaseViewController {
     func setupVisitorView() {
         
         let visitorView = CHAVisitorViewController(frame: view.bounds)
+
+        visitorView.visitorInfo = visitorInfoDict
         
         view.insertSubview(visitorView, belowSubview: navigationBar)
-        
-        visitorView.visitorInfo = visitorInfoDict
         
     }
     
