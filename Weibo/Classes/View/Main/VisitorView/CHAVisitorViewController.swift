@@ -25,6 +25,7 @@ class CHAVisitorViewController: UIView {
             tipLabel.text = message
             
             if imageName == "" {
+                startAnimation()
                 return
             }
             
@@ -46,6 +47,19 @@ class CHAVisitorViewController: UIView {
         fatalError("init(coder:) has not been impleented")
     }
 
+    // 旋转图标动画
+    private func startAnimation() {
+        let animate = CABasicAnimation(keyPath: "transform.rotation")
+        animate.toValue = 2 * M_PI
+        animate.repeatCount = MAXFLOAT
+        animate.duration = 15
+        
+        // 动画完成不删除，如果 iconView 被释放，动画会被一起销毁！
+        // 设置连续播放的动画很有用
+        animate.isRemovedOnCompletion = false
+        
+        iconView.layer.add(animate, forKey: nil)
+    }
     
     // MARK - 私有控件
     lazy var iconView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
