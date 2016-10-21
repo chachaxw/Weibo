@@ -62,14 +62,30 @@ private extension CHAMainViewController {
     // 设置所有子控制器
     func setupChildControllers() {
         
-        // 从 bundle 中加载配置json
-        // 1. 路径 2. 加载 NSData 3. 反序列化转化为成数组
-        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
-            let data = NSData(contentsOfFile: path),
-            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]]
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+        
+        var data = NSData(contentsOfFile: jsonPath)
+        
+        if data == nil {
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            
+            data = NSData(contentsOfFile: path!)
+        }
+        
+        guard let array = try? JSONSerialization.jsonObject(with: data as! Data, options: []) as? [[String: Any]]
             else {
                 return
         }
+        
+        // 从 bundle 中加载配置json
+        // 1. 路径 2. 加载 NSData 3. 反序列化转化为成数组
+//        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+//            let data = NSData(contentsOfFile: path),
+//            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]]
+//            else {
+//                return
+//        }
 //        print(data)
         
 //        let array: [[String: Any]] = [
@@ -87,16 +103,6 @@ private extension CHAMainViewController {
 //                "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
 //            ],
 //        ]
-        
-        // 测试数据格式是否正确
-//        (array as NSArray).write(toFile: "/Users/Wei/Downloads/demo.plist", atomically: true)
-        
-        // JSON序列化
-//        let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
-//        let fileUrl = NSURL.fileURL(withPath: "/Users/Wei/Downloads/demo.json")
-        
-//        print("文件url \(fileUrl)")
-//        (data as NSData).write(toFile: "/Users/Wei/Downloads/main.json", atomically: true)
         
         var arrM = [UIViewController]()
         for dict in array! {

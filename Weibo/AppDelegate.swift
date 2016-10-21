@@ -70,6 +70,7 @@ private extension AppDelegate {
             let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
             
+            // 直接保存在沙盒中，等待下一次程序使用！
             data?.write(toFile: jsonPath, atomically: true)
             print("运用程序加载完毕 \(jsonPath)")
         }
