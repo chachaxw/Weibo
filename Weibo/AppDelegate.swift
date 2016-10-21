@@ -51,8 +51,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 3.显示界面
         window?.makeKeyAndVisible()
         
+        loadAppInfo()
+        
         return true
     }
     
 }
 
+
+private extension AppDelegate {
+    
+    func loadAppInfo() {
+        
+        // 从模块异步获取
+        DispatchQueue.global().async {
+            let url = Bundle.main.url(forResource: "main.json", withExtension: nil)
+            let data = NSData(contentsOf: url!)
+            let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+            
+            data?.write(toFile: jsonPath, atomically: true)
+            print("运用程序加载完毕 \(jsonPath)")
+        }
+        
+    }
+}

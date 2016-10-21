@@ -70,7 +70,7 @@ private extension CHAMainViewController {
             else {
                 return
         }
-        print(data)
+//        print(data)
         
 //        let array: [[String: Any]] = [
 //            ["clsName": "CHAHomeViewController", "title": "首页", "imageName": "home",
