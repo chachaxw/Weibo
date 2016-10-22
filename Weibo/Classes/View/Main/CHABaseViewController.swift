@@ -59,10 +59,22 @@ class CHABaseViewController: UIViewController {
     
 }
 
+extension CHABaseViewController {
+    
+    @objc fileprivate func login() {
+        print("登录")
+    }
+    
+    @objc fileprivate func register() {
+        print("注册")
+    }
+    
+}
+
 // MARK - 设置界面
 extension CHABaseViewController {
     
-    func setupUI() {
+    fileprivate func setupUI() {
         view.backgroundColor = UIColor.cz_random()
         
         // 取消自动缩进， 如果隐藏了导航栏，会缩进20个点
@@ -74,19 +86,24 @@ extension CHABaseViewController {
     }
     
     // 设置导航条
-    func setupNaviagtionBar() {
+    private func setupNaviagtionBar() {
         // 添加导航条
         view.addSubview(navigationBar)
         
         // 将 item 设置给 bar
         navigationBar.items = [navItem]
-        // 设置 navBar 的渲染颜色
+        
+        // 设置 navBar 的背景颜色
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        
         // 设置 navBar 的字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.darkGray]
+        
+        // 设置系统按钮文字颜色
+        navigationBar.tintColor = UIColor.orange
     }
     
-    // 设置表格视图
+    // 设置表格视图 - 用户登录后执行
     func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         
@@ -110,14 +127,19 @@ extension CHABaseViewController {
     }
     
     // 设置访客视图信息
-    func setupVisitorView() {
+    private func setupVisitorView() {
         
         let visitorView = CHAVisitorViewController(frame: view.bounds)
 
         visitorView.visitorInfo = visitorInfoDict
         
         view.insertSubview(visitorView, belowSubview: navigationBar)
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registorButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         
+        // 设置登录条按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
     }
     
 }

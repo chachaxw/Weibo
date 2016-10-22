@@ -30,8 +30,8 @@ class CHADemoViewController: CHABaseViewController {
 
 extension CHADemoViewController {
     
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         // 设置右侧的控制器
         // 按钮点击无法高亮
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(showNext))

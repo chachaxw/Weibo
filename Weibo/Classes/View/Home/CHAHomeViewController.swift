@@ -78,8 +78,8 @@ extension CHAHomeViewController {
 // MARK: - 设置界面
 extension CHAHomeViewController {
     // 重写父类的方法
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         
         // 设置导航栏按钮
         // 无法高亮
