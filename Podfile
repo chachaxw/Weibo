@@ -11,16 +11,4 @@ target 'Weibo' do
   pod 'SVProgressHUD'
   pod 'pop'
 
-  # Pods for Weibo
-
-  target 'WeiboTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'WeiboUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
