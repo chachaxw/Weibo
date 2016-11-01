@@ -20,7 +20,7 @@ import UIKit
 class CHABaseViewController: UIViewController {
     
     // 用户登录标记
-    var userLogin = false
+    var userLogin = true
     
     // 访客视图
     var visitorInfoDict: [String: String]?
