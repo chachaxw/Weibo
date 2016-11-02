@@ -21,10 +21,10 @@ class CHANetworkManager: AFHTTPSessionManager {
     static let shared = CHANetworkManager()
     
     // 封装 AFN 的 GET/POST 请求
-    // - parameter method:      GET/POST
-    // - parameter URLString:   URLString
-    // - parameter parameters:  参数字典
-    // - parameter completion:  完成回调[json(字典/数组), 是否成功]
+    /// - parameter method:      GET/POST
+    /// - parameter URLString:   URLString
+    /// - parameter parameters:  参数字典
+    /// - parameter completion:  完成回调[json(字典/数组), 是否成功]
     func request(method: CHAHTTPMethod = .GET, URLString: String, parameters: [String: Any], completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
         
         let success = { (task: URLSessionDataTask, json: Any?) -> () in

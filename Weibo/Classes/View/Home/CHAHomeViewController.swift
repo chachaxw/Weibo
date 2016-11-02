@@ -20,8 +20,10 @@ class CHAHomeViewController: CHABaseViewController {
     // 加载数据
     override func loadData() {
         
-        let url = "https://api.weibo.com/2/statuses/public_timeline.json"
-        let token = ["access_token": "hello"]
+        // 用网络工具加载数据
+        CHANetworkManager.shared.statusList {
+            print("加载完成")
+        }
         
         // 模拟延迟加载数据 -> dispatch_after
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
