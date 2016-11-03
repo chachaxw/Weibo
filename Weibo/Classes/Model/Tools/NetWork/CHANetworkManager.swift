@@ -20,6 +20,37 @@ class CHANetworkManager: AFHTTPSessionManager {
     // 在第一次访问时，执行闭包，并将结果保存在 shared 中
     static let shared = CHANetworkManager()
     
+    /// 访问令牌，所有网络请求，都基于此令牌
+    var accessToken: String? = "halo"
+    
+    /// 专门负责拼接 token 的网络请求方法
+    func tokenRequest(method: CHAHTTPMethod, URLString: String, parameters: [String: Any]?,
+        completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
+        
+        // 处理 token 字段
+        guard let token = accessToken else {
+            print("没有 token! 需要登录")
+            
+            completion(nil, false)
+            
+            return
+        }
+        
+        // 1> 判断 token 是否为 nil，为 nil 直接返回
+        var parameters = parameters
+        if parameters == nil {
+            // 实例化字典
+            parameters = [String: Any]()
+        }
+        
+        // 2> 设置参数字典，代码在此处字典一定有值
+        parameters!["access_token"] = token
+        
+        // 调用 request 发起真正的网络请求方法
+        request(URLString: URLString, parameters: parameters!, completion: completion)
+        
+    }
+    
     // 封装 AFN 的 GET/POST 请求
     /// - parameter method:      GET/POST
     /// - parameter URLString:   URLString
@@ -32,6 +63,12 @@ class CHANetworkManager: AFHTTPSessionManager {
         }
         
         let failure = { (task: URLSessionDataTask?, error: Error) -> () in
+            
+            // 针对 403 处理用户 token 过期
+            if (task?.response as! HTTPURLResponse).statusCode == 403 {
+                print("Token 过期了")
+            }
+            
             print("网络错误\(error)")
             
             completion(nil, false)
