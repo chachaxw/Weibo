@@ -21,9 +21,10 @@ class CHAHomeViewController: CHABaseViewController {
     override func loadData() {
         
         // 用网络工具加载数据
-        CHANetworkManager.shared.statusList {
-            print("加载完成")
-        }
+//        CHANetworkManager.shared.statusList {(list, isSuccess) in
+//            // 绑定数据表格式
+//            print(list ?? "加载数据")
+//        }
         
         // 模拟延迟加载数据 -> dispatch_after
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {

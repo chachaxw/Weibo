@@ -24,13 +24,13 @@ class CHANetworkManager: AFHTTPSessionManager {
     var accessToken: String? = "halo"
     
     /// 专门负责拼接 token 的网络请求方法
-    func tokenRequest(method: CHAHTTPMethod, URLString: String, parameters: [String: Any]?,
-        completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
+    func tokenRequest(method: CHAHTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?,
+        completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> ()) {
         
         // 处理 token 字段
         guard let token = accessToken else {
+            // FIXME: 发送通知，提示用户登录（本方法不知道被谁调用，谁接收到通知，谁处理）
             print("没有 token! 需要登录")
-            
             completion(nil, false)
             
             return
@@ -40,14 +40,14 @@ class CHANetworkManager: AFHTTPSessionManager {
         var parameters = parameters
         if parameters == nil {
             // 实例化字典
-            parameters = [String: Any]()
+            parameters = [String: AnyObject]()
         }
         
         // 2> 设置参数字典，代码在此处字典一定有值
-        parameters!["access_token"] = token
+        parameters!["access_token"] = token as AnyObject?
         
         // 调用 request 发起真正的网络请求方法
-        request(URLString: URLString, parameters: parameters!, completion: completion)
+        request(URLString: URLString, parameters: parameters!, completion: completion as! (Any?, Bool) -> ())
         
     }
     
@@ -67,6 +67,8 @@ class CHANetworkManager: AFHTTPSessionManager {
             // 针对 403 处理用户 token 过期
             if (task?.response as! HTTPURLResponse).statusCode == 403 {
                 print("Token 过期了")
+                
+                // FIXME: 发送通知（本方法不知道被谁调用，谁接收到通知，谁处理）
             }
             
             print("网络错误\(error)")
