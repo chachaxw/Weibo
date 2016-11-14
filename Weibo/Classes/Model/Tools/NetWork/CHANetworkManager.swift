@@ -47,7 +47,7 @@ class CHANetworkManager: AFHTTPSessionManager {
         parameters!["access_token"] = token as AnyObject?
         
         // 调用 request 发起真正的网络请求方法
-        request(URLString: URLString, parameters: parameters!, completion: completion as! (Any?, Bool) -> ())
+        request(URLString: URLString, parameters: parameters!, completion: completion)
         
     }
     
@@ -56,16 +56,16 @@ class CHANetworkManager: AFHTTPSessionManager {
     /// - parameter URLString:   URLString
     /// - parameter parameters:  参数字典
     /// - parameter completion:  完成回调[json(字典/数组), 是否成功]
-    func request(method: CHAHTTPMethod = .GET, URLString: String, parameters: [String: Any], completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
+    func request(method: CHAHTTPMethod = .GET, URLString: String, parameters: [String: Any], completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> ()) {
         
         let success = { (task: URLSessionDataTask, json: Any?) -> () in
-            completion(json, true)
+            completion(json as AnyObject?, true)
         }
         
         let failure = { (task: URLSessionDataTask?, error: Error) -> () in
             
             // 针对 403 处理用户 token 过期
-            if (task?.response as! HTTPURLResponse).statusCode == 403 {
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 print("Token 过期了")
                 
                 // FIXME: 发送通知（本方法不知道被谁调用，谁接收到通知，谁处理）

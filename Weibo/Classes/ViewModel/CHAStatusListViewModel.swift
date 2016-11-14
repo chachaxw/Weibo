@@ -25,6 +25,9 @@ class CHAStatusListViewModel {
     /// 微博模型数据懒加载
     lazy var statusList = [CHAStatus]()
     
+    /// 加载微博列表
+    ///
+    /// - parameter complemetion: 完成回调
     func loadStatus(completion: @escaping (_ isSuccess: Bool) -> ()) {
         CHANetworkManager.shared.statusList { (list, isSuccess) in
             // 1. 字典转模型

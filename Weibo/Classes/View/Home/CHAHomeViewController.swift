@@ -14,32 +14,16 @@ private let cellId = "cellId"
 class CHAHomeViewController: CHABaseViewController {
     
     // 微博数据数组
-    lazy var statusList = [String]()
+    fileprivate lazy var listViewModel = CHAStatusListViewModel()
     
     
     // 加载数据
     override func loadData() {
         
         // 用网络工具加载数据
-        CHANetworkManager.shared.statusList {(list, isSuccess) in
-            // 绑定数据表格式
-            print(list ?? "加载数据")
-        }
-        
-        // 模拟延迟加载数据 -> dispatch_after
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+        listViewModel.loadStatus{ (isSuccess) in
             
-            for i in 0..<15 {
-                
-                if self.isPullup {
-                    self.statusList.append("上拉 \(i)")
-                } else {
-                    // 将数据插入到数组的顶部
-                    self.statusList.insert(i.description, at: 0)
-                }
-            }
-            print("延迟加载数据")
-            
+            print("加载数据结束")
             // 结束刷新
             self.refreshControl?.endRefreshing()
             
@@ -48,6 +32,29 @@ class CHAHomeViewController: CHABaseViewController {
             // 刷新表格数据
             self.tableView?.reloadData()
         }
+        
+        // 模拟延迟加载数据 -> dispatch_after
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//            
+//            for i in 0..<15 {
+//                
+//                if self.isPullup {
+//                    self.statusList.append("上拉 \(i)")
+//                } else {
+//                    // 将数据插入到数组的顶部
+//                    self.statusList.insert(i.description, at: 0)
+//                }
+//            }
+//            print("延迟加载数据")
+//            
+//            // 结束刷新
+//            self.refreshControl?.endRefreshing()
+//            
+//            self.isPullup = false
+//            
+//            // 刷新表格数据
+//            self.tableView?.reloadData()
+//        }
     }
     
     // 显示好友
@@ -66,7 +73,7 @@ class CHAHomeViewController: CHABaseViewController {
 extension CHAHomeViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusList.count
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +81,7 @@ extension CHAHomeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         // 设置cell
-        cell.textLabel?.text = "Halo Chacha \(statusList[indexPath.row])"
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         
         return cell
     }
