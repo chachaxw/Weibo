@@ -21,7 +21,7 @@ class CHANetworkManager: AFHTTPSessionManager {
     static let shared = CHANetworkManager()
     
     /// 访问令牌，所有网络请求，都基于此令牌
-    var accessToken: String? = "halo"
+    var accessToken: String? = "2.00DxjDHE04KWGv771112e59bQ63h1C"
     
     /// 专门负责拼接 token 的网络请求方法
     func tokenRequest(method: CHAHTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?,

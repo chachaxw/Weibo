@@ -12,7 +12,7 @@ import Foundation
 extension CHANetworkManager {
     
     func statusList(completion: @escaping (_ list: [[String: AnyObject]]?, _ isSuccess: Bool) -> ()) {
-        let url = "https://api.weibo.com/2/statuses/public_timeline.json"
+        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
         let appId = "843804771"
         let appSecret = "8e74239a2351882884f05e3e5c815e52"
 
@@ -22,7 +22,6 @@ extension CHANetworkManager {
             let result = json?["statuses"] as? [[String: AnyObject]]
             completion(result, isSuccess)
         }
-        
         
     }
 }

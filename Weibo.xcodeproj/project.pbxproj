@@ -37,6 +37,8 @@
 		B6692DD41DAFEE650028ED4E /* CHAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD31DAFEE650028ED4E /* CHAProfileViewController.swift */; };
 		B6692DD61DAFEF090028ED4E /* CHADemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6692DD51DAFEF090028ED4E /* CHADemoViewController.swift */; };
 		B673A4561DB51DAC0055C419 /* CHAVisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B673A4551DB51DAC0055C419 /* CHAVisitorViewController.swift */; };
+		B6B0331F1DD9EE8900C25896 /* CHAStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0331E1DD9EE8900C25896 /* CHAStatus.swift */; };
+		B6B033211DD9F68C00C25896 /* CHAStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B033201DD9F68C00C25896 /* CHAStatusListViewModel.swift */; };
 		B6CDBB3B1DB116E700CD726D /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */; };
 		B6D033381DCA343A001F7415 /* CHANetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D033371DCA343A001F7415 /* CHANetworkManager+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +110,8 @@
 		B6692DD31DAFEE650028ED4E /* CHAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAProfileViewController.swift; sourceTree = "<group>"; };
 		B6692DD51DAFEF090028ED4E /* CHADemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHADemoViewController.swift; sourceTree = "<group>"; };
 		B673A4551DB51DAC0055C419 /* CHAVisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAVisitorViewController.swift; sourceTree = "<group>"; };
+		B6B0331E1DD9EE8900C25896 /* CHAStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAStatus.swift; sourceTree = "<group>"; };
+		B6B033201DD9F68C00C25896 /* CHAStatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHAStatusListViewModel.swift; sourceTree = "<group>"; };
 		B6CDBB3A1DB116E700CD726D /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		B6D033371DCA343A001F7415 /* CHANetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CHANetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		BD2E1327A2B361BC2953A2C7 /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		B6692D941DAFEB0E0028ED4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6B0331E1DD9EE8900C25896 /* CHAStatus.swift */,
 			);
 			name = Model;
 			path = Classes/Model;
@@ -298,6 +303,7 @@
 		B6692D9C1DAFEB4D0028ED4E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B6B033201DD9F68C00C25896 /* CHAStatusListViewModel.swift */,
 			);
 			name = ViewModel;
 			path = Classes/ViewModel;
@@ -569,9 +575,11 @@
 				B6692DBF1DAFEC430028ED4E /* UIColor+CZAddition.m in Sources */,
 				B6692DBA1DAFEC430028ED4E /* NSObject+CZRuntime.m in Sources */,
 				B6CDBB3B1DB116E700CD726D /* UIBarButtonItem+Extension.swift in Sources */,
+				B6B0331F1DD9EE8900C25896 /* CHAStatus.swift in Sources */,
 				B6692DCE1DAFEE190028ED4E /* CHADiscoverViewController.swift in Sources */,
 				B6692DCC1DAFEDCE0028ED4E /* CHANavigationController.swift in Sources */,
 				B6692DD21DAFEE580028ED4E /* CHAMessageViewController.swift in Sources */,
+				B6B033211DD9F68C00C25896 /* CHAStatusListViewModel.swift in Sources */,
 				B6692DC31DAFEC430028ED4E /* UIViewController+CZAddition.m in Sources */,
 				B6692DC11DAFEC430028ED4E /* UIScreen+CZAddition.m in Sources */,
 				B63A79AB1DA5559F00F29FC5 /* AppDelegate.swift in Sources */,
