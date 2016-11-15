@@ -29,7 +29,10 @@ class CHAStatusListViewModel {
     ///
     /// - parameter complemetion: 完成回调
     func loadStatus(completion: @escaping (_ isSuccess: Bool) -> ()) {
-        CHANetworkManager.shared.statusList { (list, isSuccess) in
+        
+        let since_id = statusList.first?.id ?? 0
+        
+        CHANetworkManager.shared.statusList(since_id: since_id, max_id: 0) { (list, isSuccess) in
             // 1. 字典转模型
             guard let array = NSArray.yy_modelArray(with: CHAStatus.self, json: list ?? []) as? [CHAStatus] else {
                 completion(isSuccess)
@@ -38,7 +41,7 @@ class CHAStatusListViewModel {
             }
             
             // 2. 拼接数据
-            self.statusList += array
+            self.statusList = array + self.statusList
             
             // 3. 完成回调
             completion(isSuccess)
