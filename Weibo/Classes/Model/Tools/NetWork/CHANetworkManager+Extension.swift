@@ -20,7 +20,7 @@ extension CHANetworkManager {
         
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
 
-        let params = ["since_id": "\(since_id)", "max_id": "\(max_id)"]
+        let params = ["since_id": "\(since_id)", "max_id": "\(max_id > 0 ? max_id - 1 : 0)"]
         
         tokenRequest(URLString: url, parameters: params as [String : AnyObject]?) { (json, isSuccess) in
             // 从 json 中获取 statuses 字典数组

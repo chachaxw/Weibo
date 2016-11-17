@@ -21,7 +21,7 @@ class CHAHomeViewController: CHABaseViewController {
     override func loadData() {
         
         // 用网络工具加载数据
-        listViewModel.loadStatus{ (isSuccess) in
+        listViewModel.loadStatus(pullup: self.isPullup) { (isSuccess) in
             
             print("加载数据结束")
             // 结束刷新
