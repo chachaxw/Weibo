@@ -35,8 +35,8 @@ class CHAStatusListViewModel {
     /// 加载微博列表
     ///
     /// - parameter pullup:       是否上拉刷新标记
-    /// - parameter complemetion: 完成回调
-    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool, _ hasMorePullup: Bool) -> ()) {
+    /// - parameter complemetion: 完成回调[网络请求是否成功，是否刷新列表]
+    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool, _ shouldRefresh: Bool) -> ()) {
         
         // 判断是否上拉刷新，同时检查刷新错误
         if pullup && pullUpErrorTimes > maxPullupTryTimes {
