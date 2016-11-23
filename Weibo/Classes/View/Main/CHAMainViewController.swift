@@ -19,7 +19,7 @@ class CHAMainViewController: UITabBarController {
         
         // 未读微博数量
         CHANetworkManager.shared.unreadCount{ (count) in
-            print("有 \(count)条微博未读")
+            print("有 \(count) 条微博未读")
         }
     }
     
