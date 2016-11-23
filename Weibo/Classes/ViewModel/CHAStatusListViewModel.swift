@@ -21,14 +21,28 @@ import Foundation
  2. 下拉／上拉刷新数据处理
  */
 
+// 上拉刷新最大尝试次数
+private let maxPullupTryTimes = 3
+
 class CHAStatusListViewModel {
     /// 微博模型数据懒加载
     lazy var statusList = [CHAStatus]()
     
+    /// 上拉刷新次数
+    private var pullUpErrorTimes = 0
+    
+    
     /// 加载微博列表
     ///
+    /// - parameter pullup:       是否上拉刷新标记
     /// - parameter complemetion: 完成回调
-    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool) -> ()) {
+    func loadStatus(pullup: Bool, completion: @escaping (_ isSuccess: Bool, _ hasMorePullup: Bool) -> ()) {
+        
+        // 判断是否上拉刷新，同时检查刷新错误
+        if pullup && pullUpErrorTimes > maxPullupTryTimes {
+            completion(true, false)
+            return
+        }
         
         let since_id = pullup ? 0 : (statusList.first?.id ?? 0)
         let max_id = !pullup ? 0 : (statusList.last?.id ?? 0)
@@ -36,11 +50,12 @@ class CHAStatusListViewModel {
         CHANetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             // 1. 字典转模型
             guard let array = NSArray.yy_modelArray(with: CHAStatus.self, json: list ?? []) as? [CHAStatus] else {
-                completion(isSuccess)
+                completion(isSuccess, false)
                 
                 return
             }
-            print(array.count)
+            
+            print("刷新到 \(array.count) 条数据")
             // 2. 拼接数据
             if pullup {
                 self.statusList += array
@@ -48,8 +63,13 @@ class CHAStatusListViewModel {
                 self.statusList = array + self.statusList
             }
             
-            // 3. 完成回调
-            completion(isSuccess)
+            // 3. 判断上拉刷新数据量
+            if pullup && array.count == 0 {
+                self.pullUpErrorTimes += 1
+                completion(isSuccess, false)
+            } else {
+                completion(isSuccess, true)
+            }
         }
     }
 }
