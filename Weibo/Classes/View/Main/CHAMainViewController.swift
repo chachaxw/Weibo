@@ -10,17 +10,25 @@ import UIKit
 
 class CHAMainViewController: UITabBarController {
     
+    // 定时器
+    fileprivate var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 添加子控制器
         setupChildControllers()
         setupComposeButton()
+        setupTimer()
         
         // 未读微博数量
         CHANetworkManager.shared.unreadCount{ (count) in
             print("有 \(count) 条微博未读")
         }
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
     
     /* 
@@ -57,11 +65,27 @@ class CHAMainViewController: UITabBarController {
 }
 
 
+// MARK - 与时钟相关的方法
+extension CHAMainViewController {
+    
+    fileprivate func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    /// 时钟触发方法
+    @objc fileprivate func updateTimer() {
+        CHANetworkManager.shared.unreadCount { (count) in
+            // 设置首页 tabBarItem 的 badgeNumber
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+        }
+    }
+}
+
 // extension 类似于 OC 中的分类，在swift中还可以用来切分代码
 // 可以把相近功能的函数，放在一个extension中
 // 注：与OC中一样，extension中不能定义属性
 // MARK: 设置界面
-private extension CHAMainViewController {
+extension CHAMainViewController {
     
     // 设置所有子控制器
     func setupChildControllers() {
