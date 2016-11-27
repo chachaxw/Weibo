@@ -20,7 +20,7 @@ import UIKit
 class CHABaseViewController: UIViewController {
     
     // 用户登录标记
-    var userLogin = true
+    var userLogin = false
     
     // 访客视图
     var visitorInfoDict: [String: String]?
@@ -41,7 +41,7 @@ class CHABaseViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setupUI()
-        loadData()
+        CHANetworkManager.shared.userLogin ? loadData() : ()
     }
     
     // 重写 title 的 didSet
@@ -82,7 +82,7 @@ extension CHABaseViewController {
         
         setupNaviagtionBar()
         
-        userLogin ? setupTableView() : setupVisitorView()
+        CHANetworkManager.shared.userLogin ? setupTableView() : setupVisitorView()
     }
     
     // 设置导航条

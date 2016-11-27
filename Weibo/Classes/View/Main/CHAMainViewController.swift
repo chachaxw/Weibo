@@ -23,11 +23,6 @@ class CHAMainViewController: UITabBarController {
         
         // 设置代理
         delegate = self
-        
-        // 未读微博数量
-        CHANetworkManager.shared.unreadCount{ (count) in
-            print("有 \(count) 条微博未读")
-        }
     }
     
     deinit {
@@ -109,11 +104,16 @@ extension CHAMainViewController: UITabBarControllerDelegate {
 extension CHAMainViewController {
     
     fileprivate func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     /// 时钟触发方法
     @objc fileprivate func updateTimer() {
+        
+        if !CHANetworkManager.shared.userLogin {
+            return
+        }
+        
         CHANetworkManager.shared.unreadCount { (count) in
             // 设置首页 tabBarItem 的 badgeNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
