@@ -77,6 +77,9 @@ extension CHAMainViewController {
         CHANetworkManager.shared.unreadCount { (count) in
             // 设置首页 tabBarItem 的 badgeNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+            // 设置 app 的badgeNumber
+            UIApplication.shared.applicationIconBadgeNumber = count
         }
     }
 }

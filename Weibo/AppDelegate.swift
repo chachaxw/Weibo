@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         sleep(1)
+        
+        // #avaliable 检测设备版本
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
+                print("授权 " + (success ? "成功" : "失败"))
+            }
+        } else {
+            // Fallback on earlier versions
+            // 取得用户授权显示通知(上方的提示框／声音／BadgeNumber)
+            let notifySettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(notifySettings)
+        }
+
         
         // 代码中的问号都是可选解包，发送消息，不参与计算
         // 所有的 ? 都是Xcode自动添加的
