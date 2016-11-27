@@ -21,6 +21,9 @@ class CHAMainViewController: UITabBarController {
         setupComposeButton()
         setupTimer()
         
+        // 设置代理
+        delegate = self
+        
         // 未读微博数量
         CHANetworkManager.shared.unreadCount{ (count) in
             print("有 \(count) 条微博未读")
@@ -65,11 +68,28 @@ class CHAMainViewController: UITabBarController {
 }
 
 
+// MARK - UITabBarControllerDelegate
+extension CHAMainViewController: UITabBarControllerDelegate {
+    
+    /// 将要选择 TabBarItem
+    /// 
+    /// - parameter tabBarController: tabBarController
+    /// - parameter viewController: 目标控制器
+    ///
+    /// - returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        print("将要切换到 \(viewController)")
+        
+        // 判断目标控制器是否是 UIViewController
+        return !viewController.isMember(of: UIViewController.self)
+    }
+}
+
 // MARK - 与时钟相关的方法
 extension CHAMainViewController {
     
     fileprivate func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     /// 时钟触发方法
