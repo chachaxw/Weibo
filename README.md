@@ -1,2 +1,2 @@
 # Weibo
-用户 Swifts 开发微博程序
+用 Swift3 开发微博程序
